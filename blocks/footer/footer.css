@@ -6,14 +6,14 @@
   max-width: 880px;
 }
 
-@media screen and (max-width: 984px) {
+@media screen and (max-width: 950px) {
   .footer {
-
+    padding-left: 27px;
   }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 550px) {
   .footer {
-
+    padding-left: 19px;
   }
 }

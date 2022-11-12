@@ -8,4 +8,13 @@
   border: 1px #fff solid;
   background-position: center;
   align-self: center;
+  background-size: 22px 22px;
+}
+
+@media screen and (max-width: 550px) {
+  .profile__add-button {
+    width: 100%;
+    background-size: 16px 16px;
+  }
+
 }

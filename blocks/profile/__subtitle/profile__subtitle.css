@@ -5,3 +5,13 @@
   margin: 0;
   padding-top: 9px;
 }
+
+@media screen and (max-width: 550px) {
+  .profile__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 9px;
+  }
+
+}
