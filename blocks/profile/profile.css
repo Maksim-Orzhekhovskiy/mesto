@@ -1,0 +1,6 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  padding-bottom: 50px;
+}

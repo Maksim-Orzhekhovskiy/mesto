@@ -1,0 +1,11 @@
+.profile__add-button {
+  background-image: url(../../../images/plus.png);
+  min-width: 150px;
+  min-height: 50px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px #fff solid;
+  background-position: center;
+  align-self: center;
+}

@@ -1,0 +1,10 @@
+.elements__like {
+  background-image: url(../../../images/like-white.png);
+  min-width: 22px;
+  min-height: 19px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+}

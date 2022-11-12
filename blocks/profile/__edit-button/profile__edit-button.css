@@ -1,0 +1,10 @@
+.profile__edit-button {
+  background-image: url(../../../images/pencil.png);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 1px #fff solid;
+  background-position: center;
+}
