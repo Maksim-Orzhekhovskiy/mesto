@@ -8,30 +8,21 @@
   border: 1px #fff solid;
   background-position: center;
   transition: opacity .2s linear;
+  position: absolute;
+  top: 15px;
+  right: -48px;
 }
 
 .profile__edit-button:hover{
   opacity: .6;
 }
 
-@-moz-document url-prefix() {
-  .profile__edit-button {
-  margin-bottom: 8px;
-  }
-}
-
-@-moz-document url-prefix() {
-  @media screen and (max-width: 550px) {
-    .profile__edit-button {
-      margin-bottom: 6px;
-    }
-  }
-}
-
 @media screen and (max-width: 550px) {
   .profile__edit-button {
     width: 18px;
     height: 18px;
+    top: 9px;
+    right: -29px;
   }
 
 }

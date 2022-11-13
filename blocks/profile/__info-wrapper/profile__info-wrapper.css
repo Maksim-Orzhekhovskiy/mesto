@@ -1,8 +1,3 @@
-.profile__info-wrapper {
-  display: flex;
-  align-items: baseline;
-}
-
 @-moz-document url-prefix() {
   .profile__info-wrapper {
     display: grid;
@@ -12,8 +7,3 @@
   }
 }
 
-@media screen and (max-width: 550px) {
-  .profile__info-wrapper {
-    padding-left: 27px;
-  }
-}

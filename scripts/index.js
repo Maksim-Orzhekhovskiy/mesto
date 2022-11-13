@@ -8,6 +8,7 @@ let popupOpenButton = document.querySelector('.profile__edit-button');
 
 popupOpenButton.addEventListener('click', function() {
   formElement.classList.add('popup_opened');
+  nameInput.value = profileTitle.textContent;
 });
 
 popupCloseButton.addEventListener('click', function() {
@@ -15,14 +16,12 @@ popupCloseButton.addEventListener('click', function() {
 });
 
 //CHANGE PROFILE INFO
+let profileTitle = document.querySelector('.profile__title');
+let profileSubtitle = document.querySelector('.profile__subtitle');
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
-
-  let profileTitle = document.querySelector('.profile__title');
   profileTitle.textContent = nameInput.value;
-
-  let profileSubtitle = document.querySelector('.profile__subtitle');
   profileSubtitle.textContent = jobInput.value;
 }
 

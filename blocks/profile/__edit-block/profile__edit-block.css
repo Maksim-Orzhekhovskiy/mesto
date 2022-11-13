@@ -5,9 +5,10 @@
   align-items: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
   .profile__edit-block {
     flex-direction: column;
+    justify-content: center;
     padding-bottom: 32px;
     gap: 24px;
   }
