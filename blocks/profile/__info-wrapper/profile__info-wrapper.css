@@ -3,6 +3,15 @@
   align-items: baseline;
 }
 
+@-moz-document url-prefix() {
+  .profile__info-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 24px;
+    align-items: end;
+    box-sizing: border-box;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .profile__info-wrapper {
     padding-left: 27px;

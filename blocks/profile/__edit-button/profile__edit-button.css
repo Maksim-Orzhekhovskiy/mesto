@@ -9,6 +9,20 @@
   background-position: center;
 }
 
+@-moz-document url-prefix() {
+  .profile__edit-button {
+  margin-bottom: 8px;
+  }
+}
+
+@-moz-document url-prefix() {
+  @media screen and (max-width: 550px) {
+    .profile__edit-button {
+      margin-bottom: 6px;
+    }
+  }
+}
+
 @media screen and (max-width: 550px) {
   .profile__edit-button {
     width: 18px;
