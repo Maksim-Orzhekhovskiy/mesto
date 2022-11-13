@@ -12,6 +12,7 @@
 
 @media screen and (max-width: 550px) {
   .profile__title {
+    max-width: 200px;
     font-size: 27px;
     line-height: 1.22;
     padding-right: 10px;
