@@ -2,7 +2,7 @@
   position: absolute;
   top: -40px;
   right: -40px;
-  background-image: url(../../../images/Close\ Icon.png);
+  background-image: url(../../../images/close-icon.svg);
   min-width: 32px;
   min-height: 32px;
   cursor: pointer;

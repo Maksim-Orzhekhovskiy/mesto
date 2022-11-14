@@ -7,11 +7,13 @@
   justify-content: center;
   max-width: 358px;
   margin: 0 auto;
+  padding: 34px 0 37px;
 }
 
 @media screen and (max-width: 550px) {
   .popup__content {
     max-width: 238px;
+    padding: 25px 0;
   }
 
 }

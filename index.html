@@ -8,7 +8,7 @@
 </head>
 <body class="page">
   <header class="header">
-    <img src="./images/Vector.png" alt="Логотип проекта Mesto" class="header__logo">
+    <img src="./images/logo.svg" alt="Логотип проекта Mesto" class="header__logo">
   </header>
   <main class="content page__content">
     <section class ="profile">
@@ -17,72 +17,72 @@
         <div class="profile__info">
           <div class="profile__info-wrapper">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__edit-button"></button>
+            <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
           </div>
           <p class="profile__subtitle">Исследователь океана</p>
         </div>
       </div>
-      <button class="profile__add-button"></button>
+      <button class="profile__add-button" type="button" aria-label="Добавить"></button>
     </section>
     <section class="elements">
       <div class="elements__element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в горах" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Карачаевск</h2>
-          <button type="button" class="elements__like"></button>
+          <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Степь" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Гора Эльбрус</h2>
-          <button type="button" class="elements__like"></button>
+          <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы со снежными вершинами" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Домбай</h2>
-          <button type="button" class="elements__like"></button>
+          <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Степь" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Карелия</h2>
-          <button type="button" class="elements__like"></button>
+          <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы со снежными вершинами" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Черкессия</h2>
-          <button type="button" class="elements__like"></button>
+          <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в горах" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Сахалин</h2>
-          <button type="button" class="elements__like"></button>
+          <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
-      </div>
-    </section>
-    <section class="popup">
-      <div class="popup__container">
-        <form class="popup__content">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" class="popup__name" value="Жак-Ив Кусто">
-          <input type="text" class="popup__job" value="Исследователь океана">
-          <input type="submit" class="popup__submit" value="Сохранить">
-        </form>
-        <button class="popup__close" type="button"></button>
       </div>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2022.Mesto Russia</p>
   </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <form class="popup__content">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" class="popup__input popup__input_name" value="Жак-Ив Кусто">
+        <input type="text" class="popup__input popup__input_job" value="Исследователь океана">
+        <input type="submit" class="popup__submit" value="Сохранить">
+      </form>
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
