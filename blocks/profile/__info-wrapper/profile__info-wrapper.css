@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 1fr 24px;
   align-items: baseline;
-  box-sizing: border-box;
   column-gap: 18px;
 }
 
