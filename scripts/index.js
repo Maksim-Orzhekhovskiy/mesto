@@ -70,15 +70,11 @@ createElement = (item) => {
   return card;
 }
 
-const addCard = (item, elementList) => {
-  const element = createElement(item)
-  elementList.append(element);
-}
-
 initialCards.forEach = (item) => {
   addCard(item, elementList)
 }
 
-
-
-
+const addCard = (item, elementList) => {
+  const element = createElement(item)
+  elementList.append(element);
+}
