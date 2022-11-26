@@ -1,4 +1,7 @@
 .popup__container {
+  font-family: 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   width: 430px;
   background-color: #fff;
   border-radius: 10px;

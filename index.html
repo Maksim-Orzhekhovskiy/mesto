@@ -25,7 +25,8 @@
       <button class="profile__add-button" type="button" aria-label="Добавить"></button>
     </section>
     <section class="elements">
-      <div class="elements__element">
+      <!--<div class="elements__element">
+        <button type="button" class="elements__delete" aria-label="Удалить"></button>
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в горах" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Карачаевск</h2>
@@ -33,6 +34,7 @@
         </div>
       </div>
       <div class="elements__element">
+        <button type="button" class="elements__delete" aria-label="Удалить"></button>
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Степь" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Гора Эльбрус</h2>
@@ -40,6 +42,7 @@
         </div>
       </div>
       <div class="elements__element">
+        <button type="button" class="elements__delete" aria-label="Удалить"></button>
         <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы со снежными вершинами" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Домбай</h2>
@@ -47,6 +50,7 @@
         </div>
       </div>
       <div class="elements__element">
+        <button type="button" class="elements__delete" aria-label="Удалить"></button>
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Степь" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Карелия</h2>
@@ -54,6 +58,7 @@
         </div>
       </div>
       <div class="elements__element">
+        <button type="button" class="elements__delete" aria-label="Удалить"></button>
         <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы со снежными вершинами" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Черкессия</h2>
@@ -61,12 +66,13 @@
         </div>
       </div>
       <div class="elements__element">
+        <button type="button" class="elements__delete" aria-label="Удалить"></button>
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок в горах" class="elements__image">
         <div class="elements__element-wrapper">
           <h2 class="elements__title">Сахалин</h2>
           <button type="button" class="elements__like" aria-label="Мне нравится"></button>
         </div>
-      </div>
+      </div>-->
     </section>
   </main>
   <footer class="footer">
@@ -74,8 +80,8 @@
   </footer>
   <div class="popup">
     <div class="popup__container">
+      <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__content" name="edit-profile">
-        <h2 class="popup__title">Редактировать профиль</h2>
         <input type="text" class="popup__input popup__input_change_name" value="Жак-Ив Кусто" name="name">
         <input type="text" class="popup__input popup__input_change_job" value="Исследователь океана" name="job">
         <input type="submit" class="popup__submit" value="Сохранить" name="data-sender">
@@ -83,6 +89,27 @@
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
     </div>
   </div>
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__content" name="edit-profile">
+        <input type="text" class="popup__input popup__input_add_place-name" value="" name="place" placeholder="Название">
+        <input type="text" class="popup__input popup__input_add_place-link" value="" name="link" placeholder="Ссылка на картинку">
+        <input type="submit" class="popup__submit" value="Создать" name="data-sender">
+      </form>
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
 <script src="./scripts/index.js"></script>
+<template class="template">
+  <div class="elements__element">
+    <img src="#" alt="#" class="elements__image">
+    <button type="button" class="elements__delete" aria-label="Удалить"></button>
+    <div class="elements__element-wrapper">
+      <h2 class="elements__title"></h2>
+      <button type="button" class="elements__like" aria-label="Мне нравится"></button>
+    </div>
+  </div>
+</template>
 </body>
 </html>

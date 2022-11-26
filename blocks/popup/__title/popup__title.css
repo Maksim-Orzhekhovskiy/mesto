@@ -3,7 +3,7 @@
   font-size: 24px;
   line-height: 1.2;
   margin: 0;
-  padding-bottom: 47px;
+  padding: 34px 36px 0 36px;
 }
 
 @media screen and (max-width: 550px) {
@@ -11,6 +11,7 @@
     font-size: 18px;
     line-height: 1.22;
     padding-bottom: 75px;
+    padding: 25px 22px 0 22px;
   }
 
 }
