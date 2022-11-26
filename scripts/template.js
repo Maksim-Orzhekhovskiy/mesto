@@ -27,7 +27,7 @@ const initialCards = [
 const elementList = document.querySelector('.elements');
 const cardTemplate = document.querySelector('.template').content.querySelector('.elements__element')
 
-createCard = (item) => {
+createElement = (item) => {
   const card = cardTemplate.cloneNode(true);
   const cardTitle = card.querySelector('.elements__title')
   const cardImage = card.querySelector('.elements__image')
@@ -37,9 +37,9 @@ createCard = (item) => {
   return card;
 }
 
-const addCard = (item, elements) => {
-  const element = createCard(item)
-  elements.append(element);
+const addCard = (item, container) => {
+  const element = createElement(item)
+  container.append(element);
 }
 
 initialCards.forEach = (item) => {
