@@ -64,13 +64,13 @@ createElement = (cardElement) => {
   cardTitle.textContent = cardElement.name
   cardImage.src = cardElement.link
 
-  cardImage.addEventListener('click', function (event) {
+  cardImage.addEventListener('click', function(event) {
     openImagePopup(event)
   })
-  cardLikeButton.addEventListener('click', function (event) {
+  cardLikeButton.addEventListener('click', function(event) {
     likeCard(event)
   })
-  cardDeleteButton.addEventListener('click', function (event) {
+  cardDeleteButton.addEventListener('click', function(event) {
     deleteCard(event)
   })
 
@@ -84,13 +84,6 @@ function renderCards() {
   cardsContainer.append(...cards)
 }
 renderCards()
-//ADD RENDER CARDS
-function addRenderCards() {
-  const cards = initialCards.map((initialCard) => {
-    return createElement(initialCard)
-  })
-  cardsContainer.prepend(cards)
-}
 //IN CARD FUNCTIONAL
 function deleteCard (event) {
   event.target.closest('.card').remove()
@@ -118,6 +111,19 @@ function editProfileSubmit(event) {
   profileSubtitle.textContent = jobInput.value;
   closePopup(editPopup);
 }
+//ADD CARD FUNCTIONAL
+function addCardSubmit(event) {
+  event.preventDefault();
+  const addValue = {
+    name: cardTitle.value,
+    link: cardImage.value
+  }
+  const card = initialCards((initialCard) => {
+      return createElement(initialCard)
+    })
+  cardsContainer.prepend(card)
+  closePopup(addPopup)
+}
 //IMAGE BLOCK
 function openImagePopup(event) {
   imageElementPopup.src = event.target.src;
@@ -125,18 +131,6 @@ function openImagePopup(event) {
   descriptionImagePopup.textContent = event.target.closest('.card').querySelector('.card__title').textContent;
   openPopup(imagePopup);
 }
-
-function addCardSubmit(event) {
-  event.preventDefault();
-  const addElement = {
-    name: cardTitle.value,
-    link: cardImage.value
-  };
-  addInputCardElement(addElement, cardsContainer);
-  closePopup();
-  event.target.reset();
-}
-
 //LISTENERS
 popupEditButton.addEventListener('click', () => {
   nameInput.value = profileTitle.textContent;
@@ -144,6 +138,8 @@ popupEditButton.addEventListener('click', () => {
   openPopup(editPopup)
 })
 popupAddButton.addEventListener('click', () => {
+  cardTitle.value = "";
+  cardImage.value = "";
   openPopup(addPopup)
 })
 editPopupCloseButton.addEventListener('click', () => {
