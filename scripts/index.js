@@ -10,8 +10,8 @@ const editPopupCloseButton = editPopup.querySelector('.popup__close');
 //ADD POPUP
 const addPopup = document.querySelector('.popup_type_add-block');
 const popupAddButton = document.querySelector('.profile__add-button');
-const cardTitle = document.querySelector('.popup__input_add_place-name');
-const cardImage = document.querySelector('.popup__input_add_place-link');
+const cardInputTitle = document.querySelector('.popup__input_add_place-name');
+const cardInputImage = document.querySelector('.popup__input_add_place-link');
 const addForm = document.querySelector('.popup__form_add-card');
 const addPopupCloseButton = addPopup.querySelector('.popup__close');
 //IMAGE POPUP
@@ -115,14 +115,13 @@ function editProfileSubmit(event) {
 function addCardSubmit(event) {
   event.preventDefault();
   const addValue = {
-    name: cardTitle.value,
-    link: cardImage.value
+    name: cardInputTitle.value,
+    link: cardInputImage.value
   }
   const card = (initialCard) => {
       return createElement(initialCard)
     }
-    console.log(card)
-  cardsContainer.prepend(card)
+  cardsContainer.prepend(card(addValue))
   closePopup(addPopup)
 }
 //IMAGE BLOCK
@@ -139,8 +138,8 @@ popupEditButton.addEventListener('click', () => {
   openPopup(editPopup)
 })
 popupAddButton.addEventListener('click', () => {
-  cardTitle.value = "";
-  cardImage.value = "";
+  cardInputTitle.value = "";
+  cardInputImage.value = "";
   openPopup(addPopup)
 })
 editPopupCloseButton.addEventListener('click', () => {
