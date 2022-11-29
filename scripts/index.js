@@ -118,9 +118,10 @@ function addCardSubmit(event) {
     name: cardTitle.value,
     link: cardImage.value
   }
-  const card = initialCards((initialCard) => {
+  const card = (initialCard) => {
       return createElement(initialCard)
-    })
+    }
+    console.log(card)
   cardsContainer.prepend(card)
   closePopup(addPopup)
 }
