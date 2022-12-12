@@ -61,40 +61,40 @@ createElement = (cardElement) => {
   const cardDeleteButton = card.querySelector('.card__delete');
   const cardLikeButton = card.querySelector('.card__like');
 
-  cardTitle.textContent = cardElement.name
-  cardImage.src = cardElement.link
-  cardImage.alt = cardElement.name
+  cardTitle.textContent = cardElement.name;
+  cardImage.src = cardElement.link;
+  cardImage.alt = cardElement.name;
 
   cardImage.addEventListener('click', function(event) {
-    openImagePopup(event)
-  })
+    openImagePopup(event);
+  });
   cardLikeButton.addEventListener('click', function(event) {
-    likeCard(event)
-  })
+    likeCard(event);
+  });
   cardDeleteButton.addEventListener('click', function(event) {
-    deleteCard(event)
-  })
+    deleteCard(event);
+  });
 
   return card;
 }
 //RENDER CARDS
 function renderCards() {
   const cards = initialCards.map((initialCard) => {
-    return createElement(initialCard)
+    return createElement(initialCard);
   })
-  cardsContainer.append(...cards)
+  cardsContainer.append(...cards);
 }
-renderCards()
+renderCards();
 //IN CARD FUNCTIONAL
 function deleteCard (event) {
-  event.target.closest('.card').remove()
+  event.target.closest('.card').remove();
 }
 function likeCard (event) {
   event.target.classList.toggle('card__like_is-active');
 }
 //OPEN POPUP LOGIC
 function openPopup(popup) {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
 }
 //CLOSE POPUP LOGIC
 function closePopup(popup) {
@@ -152,3 +152,15 @@ imagePopupCloseButton.addEventListener('click', () => {
 formEditProfile.addEventListener('submit', editProfileSubmit);
 formAddCard.addEventListener('submit', addCardSubmit);
 
+//VALIDATION
+const inputs = [...document.querySelectorAll('.popup__input')]
+const error = document.querySelector('.popup__input-error')
+inputs.forEach(input => {
+  input.addEventListener('input', () => {
+    if(input.validity.valid) {
+
+    } else {
+      error.textContent = 'Ошибка'
+    }
+  })
+})
