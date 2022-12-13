@@ -101,21 +101,21 @@ const handleKeyUp = (event) => {
 }
 //OVERLAY CLICK CLOSE LOGIC
 const handleOverlay = (event) => {
-  if (event.target.closest('.popup')) {
-   closePopup(event.target);
+  const openedPopup = document.querySelector('.popup_opened');
+  if(event.target === event.currentTarget) {
+    closePopup(openedPopup);
   }
 }
+
 //OPEN POPUP LOGIC
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keyup', handleKeyUp);
-  document.addEventListener('click', handleOverlay);
 }
 //CLOSE POPUP LOGIC
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keyup', handleKeyUp);
-  document.removeEventListener('click', handleOverlay);
 }
 //EDIT PROFILE FUNCTIONAL
 const editProfile = () => {
@@ -167,5 +167,9 @@ addPopupCloseButton.addEventListener('click', () => {
 imagePopupCloseButton.addEventListener('click', () => {
   closePopup(imagePopup)
 })
+popupEditProfile.addEventListener('click', handleOverlay);
+popupAddCard.addEventListener('click', handleOverlay);
+imagePopup.addEventListener('click', handleOverlay);
 formEditProfile.addEventListener('submit', editProfileSubmit);
 formAddCard.addEventListener('submit', addCardSubmit);
+
