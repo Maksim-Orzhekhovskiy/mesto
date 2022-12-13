@@ -34,16 +34,16 @@
   <div class="popup popup_type_edit-block">
     <div class="popup__container">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form popup__form_edit-profile" name="edit-profile" novalidate>
+      <form class="popup__form popup__form_edit-profile" name="edit-profile">
         <label class="popup__input-wrapper">
-          <input type="text" class="popup__input popup__input_change_name" value="Жак-Ив Кусто" name="name" placeholder="Имя" maxlength="40" minlength="2" required>
+          <input type="text" class="popup__input popup__input_change_name" value="Жак-Ив Кусто" name="name" placeholder="Имя" maxlength="40" minlength="2" required id="name-input">
           <span class="name-input-error popup__input-error"></span>
         </label>
         <label class="popup__input-wrapper">
-          <input type="text" class="popup__input popup__input_change_job" value="Исследователь океана" name="job" placeholder="Вид деятельности" maxlength="200" minlength="2" required>
+          <input type="text" class="popup__input popup__input_change_job" value="Исследователь океана" name="job" placeholder="Вид деятельности" maxlength="200" minlength="2" required id="job-input">
           <span class="job-input-error popup__input-error"></span>
         </label>
-        <button type="submit" class="popup__submit" value="Сохранить" name="data-sender"></button>
+        <button type="submit" class="popup__submit" value="" name="data-sender">Сохранить</button>
       </form>
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
     </div>
@@ -51,16 +51,16 @@
   <div class="popup popup_type_add-block">
     <div class="popup__container">
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form_add-card" name="add-card" novalidate>
+      <form class="popup__form popup__form_add-card" name="add-card">
         <label class="popup__input-wrapper">
-          <input type="text" class="popup__input popup__input_add_place-name" value="" name="place" placeholder="Название"maxlength="30" minlenght="2" required>
+          <input type="text" class="popup__input popup__input_add_place-name" value="" name="place" placeholder="Название" maxlength="30" minlength="2" required id="place-input">
           <span class="place-input-error popup__input-error"></span>
         </label class="popup__input-wrapper">
         <label>
-          <input type="url" class="popup__input popup__input_add_place-link" value="" name="link" placeholder="Ссылка на картинку" required>
+          <input type="url" class="popup__input popup__input_add_place-link" value="" name="link" placeholder="Ссылка на картинку" required id="place-url-input">
           <span class="place-url-input-error popup__input-error"></span>
         </label>
-        <button type="submit" class="popup__submit" value="Создать" name="data-sender"></button>
+        <button type="submit" class="popup__submit" value="" name="data-sender">Создать</button>
       </form>
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
     </div>
@@ -84,6 +84,7 @@
       </div>
     </div>
   </template>
+  <script src="./scripts/validation.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

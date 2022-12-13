@@ -92,13 +92,30 @@ function deleteCard (event) {
 function likeCard (event) {
   event.target.classList.toggle('card__like_is-active');
 }
+//ESC CLOSE LOGIC
+const handleKeyUp = (event) => {
+  if (event.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+//OVERLAY CLICK CLOSE LOGIC
+const handleOverlay = (event) => {
+  if (event.target.closest('.popup')) {
+   closePopup(event.target);
+  }
+}
 //OPEN POPUP LOGIC
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keyup', handleKeyUp);
+  document.addEventListener('click', handleOverlay);
 }
 //CLOSE POPUP LOGIC
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', handleKeyUp);
+  document.removeEventListener('click', handleOverlay);
 }
 //EDIT PROFILE FUNCTIONAL
 const editProfile = () => {
@@ -129,11 +146,12 @@ function openImagePopup(event) {
   descriptionImagePopup.textContent = event.target.closest('.card').querySelector('.card__title').textContent;
   openPopup(imagePopup);
 }
+
 //LISTENERS
 popupEditButton.addEventListener('click', () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
-  openPopup(popupEditProfile)
+  openPopup(popupEditProfile);
 })
 popupAddButton.addEventListener('click', () => {
   cardInputTitle.value = "";
@@ -151,16 +169,3 @@ imagePopupCloseButton.addEventListener('click', () => {
 })
 formEditProfile.addEventListener('submit', editProfileSubmit);
 formAddCard.addEventListener('submit', addCardSubmit);
-
-//VALIDATION
-const inputs = [...document.querySelectorAll('.popup__input')]
-const error = document.querySelector('.popup__input-error')
-inputs.forEach(input => {
-  input.addEventListener('input', () => {
-    if(input.validity.valid) {
-
-    } else {
-      error.textContent = 'Ошибка'
-    }
-  })
-})
