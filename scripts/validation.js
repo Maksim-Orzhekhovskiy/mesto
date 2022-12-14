@@ -54,15 +54,6 @@ const enableValidation = ({formSelector, ...rest}) => {
     setEventListeners(formElement, {...rest});
   });
 };
-
-const resetInputError = (formElement, {inputSelector, ...rest}) => {
-  const inputList = Array.from(formElement.querySelectorAll(inputSelector));
-  inputList.forEach((inputElement) => {
-    if (inputElement.classList.contains(inputSelector)) {
-      hideInputError(formElement, inputSelector,{ ...rest})
-    }
-  })
-}
 enableValidation({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
