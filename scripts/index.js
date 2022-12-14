@@ -134,7 +134,6 @@ function handleCardFormSubmit(event) {
   cardsContainer.prepend(createElement(addValue));
   closePopup(popupAddCard);
   event.target.reset();
-
 }
 //IMAGE BLOCK
 function openImagePopup(event) {
@@ -151,10 +150,6 @@ popupEditButton.addEventListener('click', () => {
 })
 popupAddButton.addEventListener('click', () => {
   openPopup(popupAddCard);
-  const formElement = document.querySelector('.popup__form');
-  const buttonElement = document.querySelector('.popup__submit');
-  const inactiveButtonClass = document.querySelector('.popup__submit_inactive');
-  toggleButtonState(formElement, buttonElement, inactiveButtonClass);
 })
 editPopupCloseButton.addEventListener('click', () => {
   closePopup(popupEditProfile)
