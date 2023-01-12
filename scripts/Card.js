@@ -35,7 +35,7 @@ export class Card {
       this._card.remove();
     });
     this._card.querySelector('.card__image').addEventListener('click', () => {
-      this.openImagePopup(this);
+      this.openImagePopup(this._name, this._link);
     });
   };
 };

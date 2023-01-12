@@ -20,7 +20,7 @@ const buttonClosePopupCard = popupAddCard.querySelector('.popup__close');
 const imagePopup = document.querySelector('.popup_type_open-image');
 const imageElementPopup = document.querySelector('.popup__image');
 const descriptionImagePopup = document.querySelector('.popup__image-description');
-const imagePopupCloseButton = imagePopup.querySelector('.popup__close');
+const buttonCloseImagePopup = imagePopup.querySelector('.popup__close');
 //PROFILE BLOCK
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
@@ -33,10 +33,10 @@ editUserForm.enableValidation();
 const addUserForm = new FormValidator(validationConfig, formAddCard);
 addUserForm.enableValidation();
 //OPEN IMG
-const openImagePopup = (card) => {
-  imageElementPopup.src = card._link;
-  imageElementPopup.alt = card._name;
-  descriptionImagePopup.textContent = card._name;
+const openImagePopup = (name, link) => {
+  imageElementPopup.src = link;
+  imageElementPopup.alt = name;
+  descriptionImagePopup.textContent = name;
   openPopup(imagePopup);
 }
 //CREATE TEMPLATE
@@ -94,7 +94,7 @@ function handleCardFormSubmit(event) {
 }
 
 //LISTENERS
-popupEditButton.addEventListener('click', (event) => {
+popupEditButton.addEventListener('click', () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   openPopup(popupEditProfile);
@@ -108,7 +108,7 @@ buttonClosePopupProfile.addEventListener('click', () => {
 buttonClosePopupCard.addEventListener('click', () => {
   closePopup(popupAddCard)
 });
-imagePopupCloseButton.addEventListener('click', () => {
+buttonCloseImagePopup.addEventListener('click', () => {
   closePopup(imagePopup)
 });
 popupEditProfile.addEventListener('click', handleOverlay);
