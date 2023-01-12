@@ -7,6 +7,8 @@ export class FormValidator {
     this._inactiveButtonClass = validationConfig.inactiveButtonClass;
     this._inputErrorClass = validationConfig.inputErrorClass;
     this._errorClass = validationConfig.errorClass;
+    this._button = this._form.querySelector(this._submitButtonSelector);
+    this._inputs = Array.from(this._form.querySelectorAll(this._inputSelector));
   };
 
   _hideInputError(input) {
@@ -37,38 +39,32 @@ export class FormValidator {
     })
   };
 
-  _toggleButtonState(buttonElement, inputList) {
-    if (this._hasInvalidInput(inputList)) {
-      buttonElement.classList.add(this._inactiveButtonClass);
-      buttonElement.disabled = true;
+  _toggleButtonState() {
+    if (this._hasInvalidInput(this._inputs)) {
+      this._button.classList.add(this._inactiveButtonClass);
+      this._button.disabled = true;
     } else {
-      buttonElement.classList.remove(this._inactiveButtonClass);
-      buttonElement.disabled = false;
+      this._button.classList.remove(this._inactiveButtonClass);
+      this._button.disabled = false;
     }
   };
 
   _setEventListeners() {
-    const inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
-    const buttonElement = this._form.querySelector(
-      this._submitButtonSelector
-  );
-
-    inputList.forEach((input) => {
+    this._inputs.forEach((input) => {
       input.addEventListener('input', () => {
         this._isValid(input);
-        this._toggleButtonState(buttonElement, inputList);
+        this._toggleButtonState(this._button, this._inputs);
       });
     });
 
-    this._form.addEventListener('reset', (e) => {
+    this._form.addEventListener('reset', () => {
       setTimeout(() => {
-        console.log(this._form)
         this._isValid(this._form);
-        this._toggleButtonState(buttonElement, inputList);
+        this._toggleButtonState(this._button, this._inputs);
     }, 0)
     });
 
-    this._toggleButtonState(buttonElement, inputList);
+    this._toggleButtonState(this._button, this._inputs);
   };
 
   enableValidation() {

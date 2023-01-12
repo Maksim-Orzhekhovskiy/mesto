@@ -24,7 +24,7 @@ export class Card {
     this._card.querySelector('.card__like').classList.toggle('card__like_is-active');
 };
   _handleDeleteCard() {
-    this._card.remove();
+    this._card = null;
 };
 
   _setEventListeners() {

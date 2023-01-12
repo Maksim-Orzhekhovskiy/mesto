@@ -8,14 +8,14 @@ const popupEditButton = document.querySelector('.profile__edit-button');
 const nameInput = document.querySelector('.popup__input_change_name');
 const jobInput = document.querySelector('.popup__input_change_job');
 const formEditProfile = document.querySelector('.popup__form_edit-profile')
-const editPopupCloseButton = popupEditProfile.querySelector('.popup__close');
+const buttonClosePopupProfile = popupEditProfile.querySelector('.popup__close');
 //ADD POPUP
 const popupAddCard = document.querySelector('.popup_type_add-block');
 const popupAddButton = document.querySelector('.profile__add-button');
 const cardInputTitle = document.querySelector('.popup__input_add_place-name');
 const cardInputImage = document.querySelector('.popup__input_add_place-link');
 const formAddCard = document.querySelector('.popup__form_add-card');
-const addPopupCloseButton = popupAddCard.querySelector('.popup__close');
+const buttonClosePopupCard = popupAddCard.querySelector('.popup__close');
 //IMAGE POPUP
 const imagePopup = document.querySelector('.popup_type_open-image');
 const imageElementPopup = document.querySelector('.popup__image');
@@ -34,8 +34,6 @@ const addUserForm = new FormValidator(validationConfig, formAddCard);
 addUserForm.enableValidation();
 //OPEN IMG
 const openImagePopup = (card) => {
-  console.log(card)
-  console.log(imageElementPopup)
   imageElementPopup.src = card._link;
   imageElementPopup.alt = card._name;
   descriptionImagePopup.textContent = card._name;
@@ -100,20 +98,19 @@ popupEditButton.addEventListener('click', (event) => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   openPopup(popupEditProfile);
-  console.log(event.target)
-})
+});
 popupAddButton.addEventListener('click', () => {
   openPopup(popupAddCard);
-})
-editPopupCloseButton.addEventListener('click', () => {
+});
+buttonClosePopupProfile.addEventListener('click', () => {
   closePopup(popupEditProfile)
-})
-addPopupCloseButton.addEventListener('click', () => {
+});
+buttonClosePopupCard.addEventListener('click', () => {
   closePopup(popupAddCard)
-})
+});
 imagePopupCloseButton.addEventListener('click', () => {
   closePopup(imagePopup)
-})
+});
 popupEditProfile.addEventListener('click', handleOverlay);
 popupAddCard.addEventListener('click', handleOverlay);
 imagePopup.addEventListener('click', handleOverlay);
