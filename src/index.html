@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
   <header class="header">
-    <img src="./images/logo.svg" alt="Логотип проекта Mesto" class="header__logo">
+<img src="<%=require('./images/logo.svg')%>" alt="Фотография Жака-Ива Кусто" class="header__logo">
   </header>
   <main class="content page__content">
     <section class ="profile">
       <div class="profile__edit-block">
-        <img src="./images/image.jpg" alt="Ваш аватар" class="profile__avatar">
+        <img src="<%=require('./images/image.jpg')%>" alt="Ваш аватар" class="profile__avatar">
         <div class="profile__info">
           <div class="profile__info-wrapper">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -53,7 +52,7 @@
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form popup__form_add-card" name="add-card">
         <label class="popup__input-wrapper">
-          <input type="text" class="popup__input popup__input_add_place-name" value="" name="place" placeholder="Название" maxlength="30" minlength="2" required id="place-input">
+          <input type="text" class="popup__input popup__input_add_place-name" value="" name="name" placeholder="Название" maxlength="30" minlength="2" required id="place-input">
           <span class="place-input-error popup__input-error"></span>
         </label>
         <label class="popup__input-wrapper">
@@ -84,6 +83,5 @@
       </div>
     </div>
   </template>
-  <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>
