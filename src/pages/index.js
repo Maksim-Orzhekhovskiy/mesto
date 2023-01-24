@@ -1,11 +1,11 @@
 import './index.css';
-import { initialCards, validationConfig } from "../scripts/constants.js";
-import { FormValidator } from "../scripts/FormValidator.js";
-import { Card } from "../scripts/Card.js";
-import { PopupWithImage } from "../scripts/PopupWithImage.js";
-import { UserInfo } from "../scripts/UserInfo.js";
-import { PopupWithForm } from "../scripts/PopupWithForm.js";
-import { Section } from "../scripts/Section.js";
+import { initialCards, validationConfig } from "../utils/constants.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { Card } from "../components/Card.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { Section } from "../components/Section.js";
 
 //EDIT POPUP
 const popupEditButton = document.querySelector('.profile__edit-button');
@@ -15,14 +15,12 @@ const formEditProfile = document.querySelector('.popup__form_edit-profile')
 //ADD POPUP
 const popupAddButton = document.querySelector('.profile__add-button');
 const formAddCard = document.querySelector('.popup__form_add-card');
-//CARDS BLOCK
-const cardsContainer = document.querySelector('.cards');
 //FORM
-const editUserForm = new FormValidator(validationConfig, formEditProfile);
-editUserForm.enableValidation();
+const editUserValidator = new FormValidator(validationConfig, formEditProfile);
+editUserValidator.enableValidation();
 
-const addUserForm = new FormValidator(validationConfig, formAddCard);
-addUserForm.enableValidation();
+const addCardValidator = new FormValidator(validationConfig, formAddCard);
+addCardValidator.enableValidation();
 
 const popupWithImage = new PopupWithImage('.popup_type_open-image')
 popupWithImage.setEventListeners();
@@ -55,7 +53,6 @@ const createElement = (element) => {
 const popupAddCard = new PopupWithForm({
   handleFormSubmit: (placeData) => {
     const newCard = createElement(placeData)
-    console.log(placeData)
     cardSection.addItem(newCard)
 
   }
@@ -67,14 +64,14 @@ const cardSection = new Section({
   renderer: (item) => {
     cardSection.addItem(createElement(item));
   }
-}, cardsContainer)
+}, '.cards')
 cardSection.renderItems();
 
 popupEditButton.addEventListener('click', () => {
   popupEditProfile.open();
-  const inputValues = userInfo.getUserInfo();
-  nameInput.value = inputValues.name;
-  jobInput.value = inputValues.job;
+  const {name, job} = userInfo.getUserInfo();
+  nameInput.value = name;
+  jobInput.value = job;
 });
 
 popupAddButton.addEventListener('click', () => {
