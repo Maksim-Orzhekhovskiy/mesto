@@ -12,7 +12,10 @@
   <main class="content page__content">
     <section class ="profile">
       <div class="profile__edit-block">
-        <img src="<%=require('./images/image.jpg')%>" alt="Ваш аватар" class="profile__avatar">
+        <div class="profile__avatar-wrapper">
+          <img src="<%=require('./images/image.jpg')%>" alt="Ваш аватар" class="profile__avatar">
+          <button class="profile__avatar-edit-button"></button>
+        </div>
         <div class="profile__info">
           <div class="profile__info-wrapper">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -73,13 +76,38 @@
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
     </div>
   </div>
+  <div class="popup popup_type_delete-card">
+    <div class="popup__container">
+      <h2 class="popup__title">Вы уверены?</h2>
+      <form class="popup__form popup__form_delete-card" name="delete-card">
+        <button type="submit" class="popup__submit" name="data-sender">Да</button>
+      </form>
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+  <div class="popup popup_type_change-avatar">
+    <div class="popup__container">
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form popup__form_change-avatar" name="change-avatar">
+        <label class="popup__input-wrapper">
+          <input type="url" class="popup__input popup__input_change-avatar" name="link" placeholder="Ссылка на ававар" required id="avatar-url-input">
+          <span class="place-url-input-error popup__input-error"></span>
+        </label>
+        <button type="submit" class="popup__submit" name="data-sender">Да</button>
+      </form>
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
   <template class="card-template">
     <div class="card">
       <img src="#" alt="#" class="card__image">
       <button type="button" class="card__delete" aria-label="Удалить"></button>
       <div class="card__wrapper">
         <h2 class="card__title"></h2>
-        <button type="button" class="card__like" aria-label="Мне нравится"></button>
+        <div class="card__like-wrapper">
+          <button type="button" class="card__like" aria-label="Мне нравится"></button>
+          <p class="card__like-counter">0</p>
+        </div>
       </div>
     </div>
   </template>
