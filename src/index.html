@@ -38,11 +38,11 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form popup__form_edit-profile" name="edit-profile">
         <label class="popup__input-wrapper">
-          <input type="text" class="popup__input popup__input_change_name" value="Жак-Ив Кусто" name="name" placeholder="Имя" maxlength="40" minlength="2" required id="name-input">
+          <input type="text" class="popup__input popup__input_change_name" name="name" placeholder="Имя" maxlength="40" minlength="2" required id="name-input">
           <span class="name-input-error popup__input-error"></span>
         </label>
         <label class="popup__input-wrapper">
-          <input type="text" class="popup__input popup__input_change_job" value="Исследователь океана" name="job" placeholder="Вид деятельности" maxlength="200" minlength="2" required id="job-input">
+          <input type="text" class="popup__input popup__input_change_job" name="job" placeholder="Вид деятельности" maxlength="200" minlength="2" required id="job-input">
           <span class="job-input-error popup__input-error"></span>
         </label>
         <button type="submit" class="popup__submit" name="data-sender">Сохранить</button>
@@ -88,10 +88,10 @@
   <div class="popup popup_type_change-avatar">
     <div class="popup__container">
       <h2 class="popup__title">Обновить аватар</h2>
-      <form class="popup__form popup__form_change-avatar" name="change-avatar">
+      <form class="popup__form popup__form_change-avatar" name="link">
         <label class="popup__input-wrapper">
-          <input type="url" class="popup__input popup__input_change-avatar" name="link" placeholder="Ссылка на ававар" required id="avatar-url-input">
-          <span class="place-url-input-error popup__input-error"></span>
+          <input type="url" class="popup__input popup__input_change-avatar" name="avatar" placeholder="Ссылка на аватар" required id="avatar-url-input">
+          <span class="avatar-url-input-error popup__input-error"></span>
         </label>
         <button type="submit" class="popup__submit" name="data-sender">Да</button>
       </form>
