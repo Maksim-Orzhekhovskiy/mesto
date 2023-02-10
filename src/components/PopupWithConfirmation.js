@@ -5,7 +5,7 @@ export class PopupWithConfirmation extends Popup {
     super(popupSelector);
     this._popupForm = this._popup.querySelector('.popup__form');
     this._popupSubmit = this._popup.querySelector('.popup__submit');
-  }
+  };
 
   load(loading) {
     if (loading) {
@@ -15,9 +15,14 @@ export class PopupWithConfirmation extends Popup {
     }
   };
 
+  handleFormSubmit(func) {
+    this._handleFormSubmit = func;
+  };
+
   setEventListeners() {
     this._popupForm.addEventListener('submit', (evt) => {
       evt.preventDefault();
+      this._handleFormSubmit();
       super.close();
     });
     super.setEventListeners();

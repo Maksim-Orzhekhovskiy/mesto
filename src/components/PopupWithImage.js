@@ -5,7 +5,7 @@ export class PopupWithImage extends Popup {
     super(popupSelector);
     this._descriptionImagePopup = this._popup.querySelector('.popup__image-description');
     this._imgElementPopup = this._popup.querySelector('.popup__image');
-  }
+  };
 
   open (cardTitleElement, cardImageElement) {
 
@@ -13,7 +13,7 @@ export class PopupWithImage extends Popup {
     this._imgElementPopup.alt = cardTitleElement;
     this._descriptionImagePopup.textContent = cardTitleElement;
     super.open();
-  }
+  };
 }
 
 
