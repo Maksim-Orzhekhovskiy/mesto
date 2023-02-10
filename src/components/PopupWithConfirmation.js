@@ -1,18 +1,27 @@
 import { Popup } from "./Popup";
 
 export class PopupWithConfirmation extends Popup {
-  constructor({ handleFormSubmit }, popupSelector) {
+  constructor(popupSelector) {
     super(popupSelector);
     this._popupForm = this._popup.querySelector('.popup__form');
-    this._handleFormSubmit = handleFormSubmit;
+    this._popupSubmit = this._popup.querySelector('.popup__submit');
   }
+
+  load(loading) {
+    if (loading) {
+      this._popupSubmit.textContent = 'Обновляем...'
+    } else {
+      this._popupSubmit.textContent = 'Да';
+    }
+  };
+
   setEventListeners() {
     this._popupForm.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._handleFormSubmit();
+      super.close();
     });
     super.setEventListeners();
-  }
+  };
 }
 
 
