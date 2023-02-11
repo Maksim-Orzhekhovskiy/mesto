@@ -5,18 +5,25 @@ export class Api {
     this._headers = this._options.headers;
   };
 
+  _getResponseData(res) {
+    if (!res.ok) {
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json();
+}
+
   getInitialCards = () => {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`))
+    .then(res => this._getResponseData(res))
   };
 
   getUserData = () => {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
+    .then(res => this._getResponseData(res));
   };
 
   editAvatar(data) {
@@ -27,7 +34,7 @@ export class Api {
         avatar: data.avatar
       })
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
+    .then(res => this._getResponseData(res));
   };
 
   editProfile(data) {
@@ -39,7 +46,7 @@ export class Api {
         about: data.job
       })
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
+    .then(res => this._getResponseData(res));
   };
 
   addNewCard(data) {
@@ -51,7 +58,7 @@ export class Api {
         link: data.link,
       })
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
+    .then(res => this._getResponseData(res));
   }
 
   deleteCard(cardId) {
@@ -59,7 +66,7 @@ export class Api {
       method: "DELETE",
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
+    .then(res => this._getResponseData(res));
   };
 
   addCardLike(cardId) {
@@ -67,14 +74,14 @@ export class Api {
       method: "PUT",
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
-  }
+    .then(res => this._getResponseData(res));
+  };
 
   deleteCardLike(data) {
     return fetch(`${this._baseUrl}/cards/likes/${data}`, {
       method: "DELETE",
       headers: this._headers
     })
-    .then(res => res.ok ? res.json() : Promise.reject(`Тут чет это: Ошибка ${res.status} - ${res.statusText}`));
+    .then(res => this._getResponseData(res));
   };
-};
+}

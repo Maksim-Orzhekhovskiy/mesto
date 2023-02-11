@@ -63,6 +63,7 @@ const popupEditProfile = new PopupWithForm({
     api.editProfile(userData)
       .then((userData) => {
         userInfo.setUserInfo(userData);
+        popupEditProfile.close();
       })
       .catch((err) => {
         console.log(`Ошибочка: ${err}`);
@@ -81,6 +82,7 @@ const popupEditAvatar = new PopupWithForm({
     api.editAvatar(userData)
       .then((userData) => {
         userInfo.setUserInfo(userData);
+        popupEditAvatar.close();
       })
       .catch((err) => {
         console.log(`Ошибочка: ${err}`);
@@ -100,6 +102,7 @@ const popupAddCard = new PopupWithForm({
       .then((userData) => {
         const newCard = createElement(userData);
         cardSection.addItem(newCard);
+        popupAddCard.close();
       })
       .catch((err) => {
         console.log(`Ошибочка: ${err}`);
@@ -122,8 +125,9 @@ const createElement = (data) => {
     popupDeleteCard.handleFormSubmit(() => {
       popupDeleteCard.load(true);
       return api.deleteCard(id)
-        .then((id) => {
-          cardElement.deleteCard(id)
+        .then(() => {
+          cardElement.deleteCard();
+          popupDeleteCard.close();
         })
         .catch((err) => {
           console.log(`Ошибочка: ${err}`);
@@ -174,14 +178,14 @@ const cardSection = new Section({
 }, '.cards')
 
 // Валидация форм
-const editUserValidator = new FormValidator(validationConfig, formEditProfile);
-editUserValidator.enableValidation();
+const userEditValidator = new FormValidator(validationConfig, formEditProfile);
+userEditValidator.enableValidation();
 
-const addCardValidator = new FormValidator(validationConfig, formAddCard);
-addCardValidator.enableValidation();
+const cardAddValidator = new FormValidator(validationConfig, formAddCard);
+cardAddValidator.enableValidation();
 
-const changeAvatarValidator = new FormValidator(validationConfig, formChangeAvatar);
-changeAvatarValidator.enableValidation();
+const avatarChangeValidator = new FormValidator(validationConfig, formChangeAvatar);
+avatarChangeValidator.enableValidation();
 //Слушатели на кнопки
 popupEditButton.addEventListener('click', () => {
   popupEditProfile.open();
@@ -191,11 +195,11 @@ popupEditButton.addEventListener('click', () => {
 });
 
 popupEditAvatarButton.addEventListener('click', () => {
-  changeAvatarValidator.toggleButtonState();
+  avatarChangeValidator.toggleButtonState();
   popupEditAvatar.open();
 });
 
 popupAddButton.addEventListener('click', () => {
-  addCardValidator.toggleButtonState();
+  cardAddValidator.toggleButtonState();
   popupAddCard.open();
 });
